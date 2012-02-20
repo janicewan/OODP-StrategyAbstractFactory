@@ -23,7 +23,12 @@ public class APFactory {
 			return builder.getAirplane();
 
 		}
-		
+		if (string.equals("Passenger")){
+			AirplaneBuilderInterface builder = new PassengerAirplaneBuilder();
+			Director director = new Director(builder);
+			director.constructAirplane();
+			return builder.getAirplane();
+		}
 		return null;
 	}
 
