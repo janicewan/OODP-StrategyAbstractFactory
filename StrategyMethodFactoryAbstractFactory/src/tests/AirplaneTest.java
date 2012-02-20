@@ -11,6 +11,7 @@ import org.junit.Test;
 import vehicles.AirPlaneFactory;
 import vehicles.Airplane;
 
+import vehicles.APFactory;
 import vehicles.AirplaneBuilderInterface;
 import vehicles.Director;
 import vehicles.Flying;
@@ -39,16 +40,16 @@ public class AirplaneTest {
 		String stringReturned = null;
 		
 //		AirPlaneFactory harrierFactory = new HarrierFactory();
-		AirplaneBuilderInterface builder = new HarrierBuilder();
-		
 //		Flying fly = harrierFactory.createFlying();
-		Director director = new Director(builder);
-
 //		LiftOff liftOff = harrierFactory.createLiftOff();
-		director.constructAirplane();
-		
-		Airplane classUnderTest = builder.getAirplane();
 
+//		AirplaneBuilderInterface builder = new HarrierBuilder();		
+//		Director director = new Director(builder);
+//		director.constructAirplane();
+//		Airplane classUnderTest = builder.getAirplane();
+		
+		Airplane classUnderTest = APFactory.createAirplane("Harrier");	
+		
 		stringReturned = classUnderTest.howDoYouFly();
 
 		assertEquals("Wrong Answer !", expectedOutput, stringReturned);
@@ -67,10 +68,12 @@ public class AirplaneTest {
 //		LiftOff liftOff = modelAirPlaneFactory.createLiftOff();
 //		Airplane classUnderTest = new Airplane(liftOff,fly);
 		
-		AirplaneBuilderInterface builder = new ModelAirplaneBuilder();
-		Director director = new Director(builder);
-		director.constructAirplane();
-		Airplane classUnderTest = builder.getAirplane();
+//		AirplaneBuilderInterface builder = new ModelAirplaneBuilder();
+//		Director director = new Director(builder);
+//		director.constructAirplane();
+//		Airplane classUnderTest = builder.getAirplane();
+		
+		Airplane classUnderTest = APFactory.createAirplane("Model");
 				
 		stringReturned = classUnderTest.howDoYouFly();
 
@@ -132,10 +135,10 @@ public class AirplaneTest {
 //		LiftOff liftOff = modelAirPlaneFactory.createLiftOff();
 //		Airplane classUnderTest = new Airplane(liftOff,fly);
 		
-		AirplaneBuilderInterface builder = new ModelAirplaneBuilder();
-		Director director = new Director(builder);
-		director.constructAirplane();
-		Airplane classUnderTest = builder.getAirplane();
+//		AirplaneBuilderInterface builder = new ModelAirplaneBuilder();
+//		Director director = new Director(builder);
+//		director.constructAirplane();
+		Airplane classUnderTest = APFactory.createAirplane("Model");	
 
 		stringReturned = classUnderTest.howDoYouLiftOff();
 
