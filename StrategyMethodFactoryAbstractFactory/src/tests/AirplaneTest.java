@@ -11,9 +11,12 @@ import org.junit.Test;
 import vehicles.AirPlaneFactory;
 import vehicles.Airplane;
 
+import vehicles.Director;
 import vehicles.Flying;
+import vehicles.HarrierBuilder;
 import vehicles.HarrierFactory;
 import vehicles.ModelAirPlaneFactory;
+import vehicles.ModelAirplaneBuilder;
 import vehicles.PassengerPlaneFactory;
 
 import vehicles.LiftOff;
@@ -33,13 +36,16 @@ public class AirplaneTest {
 		String expectedOutput = "Like a fighter jet";
 		String stringReturned = null;
 		
-		AirPlaneFactory harrierFactory = new HarrierFactory();
+//		AirPlaneFactory harrierFactory = new HarrierFactory();
+		HarrierBuilder builder = new HarrierBuilder();
 		
-		Flying fly = harrierFactory.createFlying();
+//		Flying fly = harrierFactory.createFlying();
+		Director director = new Director(builder);
 
-		LiftOff liftOff = harrierFactory.createLiftOff();
-
-		Airplane classUnderTest = new Airplane(liftOff,fly);
+//		LiftOff liftOff = harrierFactory.createLiftOff();
+		director.constructAirplane();
+		
+		Airplane classUnderTest = builder.getAirplane();
 
 		stringReturned = classUnderTest.howDoYouFly();
 
@@ -54,13 +60,16 @@ public class AirplaneTest {
 		String expectedOutput = "I don't Fly";
 		String stringReturned = null;
 	
-		AirPlaneFactory modelAirPlaneFactory = new ModelAirPlaneFactory();
+//		AirPlaneFactory modelAirPlaneFactory = new ModelAirPlaneFactory();
+//		Flying fly = modelAirPlaneFactory.createFlying();
+//		LiftOff liftOff = modelAirPlaneFactory.createLiftOff();
+//		Airplane classUnderTest = new Airplane(liftOff,fly);
 		
-		Flying fly = modelAirPlaneFactory.createFlying();
-		LiftOff liftOff = modelAirPlaneFactory.createLiftOff();
-
-		Airplane classUnderTest = new Airplane(liftOff,fly);
-
+		ModelAirplaneBuilder builder = new ModelAirplaneBuilder();
+		Director director = new Director(builder);
+		director.constructAirplane();
+		Airplane classUnderTest = builder.getAirplane();
+				
 		stringReturned = classUnderTest.howDoYouFly();
 
 		assertEquals("Wrong Answer !", expectedOutput, stringReturned);

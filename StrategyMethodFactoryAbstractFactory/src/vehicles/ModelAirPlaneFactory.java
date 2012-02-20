@@ -15,8 +15,7 @@ public class ModelAirPlaneFactory implements AirPlaneFactory {
 	 */
 	@Override
 	public Flying createFlying() {
-		FlyingFactory flyingFactory = new FlyingFactory();
-		return flyingFactory.createFlying("Model Airplane");
+		return FlyingFactory.createFlying("Model Airplane");
 	}
 
 	/* (non-Javadoc)
@@ -24,8 +23,7 @@ public class ModelAirPlaneFactory implements AirPlaneFactory {
 	 */
 	@Override
 	public LiftOff createLiftOff() {
-		LiftOffFactory liftOffFactory = new LiftOffFactory();
-		return liftOffFactory.createLiftOff("don't");
+		return LiftOffFactory.createLiftOff("don't");
 	}
 
 }
