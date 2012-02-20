@@ -9,16 +9,11 @@ package vehicles;
  */
 public class Director {
 
-	private HarrierBuilder builder;
-	private ModelAirplaneBuilder builder2;
+	private AirplaneBuilderInterface builder;
 
 
-	public Director(HarrierBuilder builder) {
+	public Director(AirplaneBuilderInterface builder) {
 		this.builder = builder;
-	}
-
-	public Director(ModelAirplaneBuilder builder2) {
-		this.builder2 = builder2;
 	}
 
 	public void constructAirplane() {

@@ -11,12 +11,14 @@ import org.junit.Test;
 import vehicles.AirPlaneFactory;
 import vehicles.Airplane;
 
+import vehicles.AirplaneBuilderInterface;
 import vehicles.Director;
 import vehicles.Flying;
 import vehicles.HarrierBuilder;
 import vehicles.HarrierFactory;
 import vehicles.ModelAirPlaneFactory;
 import vehicles.ModelAirplaneBuilder;
+import vehicles.PassengerAirplaneBuilder;
 import vehicles.PassengerPlaneFactory;
 
 import vehicles.LiftOff;
@@ -37,7 +39,7 @@ public class AirplaneTest {
 		String stringReturned = null;
 		
 //		AirPlaneFactory harrierFactory = new HarrierFactory();
-		HarrierBuilder builder = new HarrierBuilder();
+		AirplaneBuilderInterface builder = new HarrierBuilder();
 		
 //		Flying fly = harrierFactory.createFlying();
 		Director director = new Director(builder);
@@ -65,7 +67,7 @@ public class AirplaneTest {
 //		LiftOff liftOff = modelAirPlaneFactory.createLiftOff();
 //		Airplane classUnderTest = new Airplane(liftOff,fly);
 		
-		ModelAirplaneBuilder builder = new ModelAirplaneBuilder();
+		AirplaneBuilderInterface builder = new ModelAirplaneBuilder();
 		Director director = new Director(builder);
 		director.constructAirplane();
 		Airplane classUnderTest = builder.getAirplane();
@@ -82,12 +84,14 @@ public class AirplaneTest {
 		String expectedOutput = "Like a passenger airplane";
 		String stringReturned = null;
 		
-		AirPlaneFactory passengerPlaneFactory = new PassengerPlaneFactory();
-		
-		Flying fly = passengerPlaneFactory.createFlying();
-		LiftOff liftOff =  passengerPlaneFactory.createLiftOff();
-
-		Airplane classUnderTest = new Airplane(liftOff,fly);
+//		AirPlaneFactory passengerPlaneFactory = new PassengerPlaneFactory();
+//		Flying fly = passengerPlaneFactory.createFlying();
+//		LiftOff liftOff =  passengerPlaneFactory.createLiftOff();
+//		Airplane classUnderTest = new Airplane(liftOff,fly);	
+		AirplaneBuilderInterface builder = new PassengerAirplaneBuilder();
+		Director director = new Director(builder);
+		director.constructAirplane();
+		Airplane classUnderTest = builder.getAirplane();
 
 		stringReturned = classUnderTest.howDoYouFly();
 
@@ -102,13 +106,14 @@ public class AirplaneTest {
 		String expectedOutput = "Vertically";
 		String stringReturned = null;
 
-		AirPlaneFactory harrierFactory = new HarrierFactory();
-		
-		Flying fly = harrierFactory.createFlying();
-
-		LiftOff liftOff = harrierFactory.createLiftOff();
-
-		Airplane classUnderTest = new Airplane(liftOff,fly);
+//		AirPlaneFactory harrierFactory = new HarrierFactory();
+//		Flying fly = harrierFactory.createFlying();
+//		LiftOff liftOff = harrierFactory.createLiftOff();
+//		Airplane classUnderTest = new Airplane(liftOff,fly);
+		AirplaneBuilderInterface builder = new HarrierBuilder();
+		Director director = new Director(builder);
+		director.constructAirplane();
+		Airplane classUnderTest = builder.getAirplane();
 
 		stringReturned = classUnderTest.howDoYouLiftOff();
 
@@ -122,12 +127,15 @@ public class AirplaneTest {
 		String expectedOutput = "I don't LiftOff";
 		String stringReturned = null;
 
-		AirPlaneFactory modelAirPlaneFactory = new ModelAirPlaneFactory();
+//		AirPlaneFactory modelAirPlaneFactory = new ModelAirPlaneFactory();
+//		Flying fly = modelAirPlaneFactory.createFlying();
+//		LiftOff liftOff = modelAirPlaneFactory.createLiftOff();
+//		Airplane classUnderTest = new Airplane(liftOff,fly);
 		
-		Flying fly = modelAirPlaneFactory.createFlying();
-		LiftOff liftOff = modelAirPlaneFactory.createLiftOff();
-
-		Airplane classUnderTest = new Airplane(liftOff,fly);
+		AirplaneBuilderInterface builder = new ModelAirplaneBuilder();
+		Director director = new Director(builder);
+		director.constructAirplane();
+		Airplane classUnderTest = builder.getAirplane();
 
 		stringReturned = classUnderTest.howDoYouLiftOff();
 
@@ -141,13 +149,17 @@ public class AirplaneTest {
 		String expectedOutput = "Horizontally";
 		String stringReturned = null;
 
-		AirPlaneFactory passengerPlaneFactory = new PassengerPlaneFactory();
+//		AirPlaneFactory passengerPlaneFactory = new PassengerPlaneFactory();
+//		Flying fly = passengerPlaneFactory.createFlying();
+//		LiftOff liftOff =  passengerPlaneFactory.createLiftOff();
+//		Airplane classUnderTest = new Airplane(liftOff,fly);
 		
-		Flying fly = passengerPlaneFactory.createFlying();
-		LiftOff liftOff =  passengerPlaneFactory.createLiftOff();
-
-		Airplane classUnderTest = new Airplane(liftOff,fly);
-
+		AirplaneBuilderInterface builder = new PassengerAirplaneBuilder();
+		Director director = new Director(builder);
+		director.constructAirplane();
+		Airplane classUnderTest = builder.getAirplane();
+				
+		
 		stringReturned = classUnderTest.howDoYouLiftOff();
 
 		assertEquals("Wrong Answer !", expectedOutput, stringReturned);

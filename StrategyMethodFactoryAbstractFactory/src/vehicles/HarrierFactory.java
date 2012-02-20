@@ -15,8 +15,7 @@ public class HarrierFactory implements AirPlaneFactory {
 	 */
 	@Override
 	public Flying createFlying() {
-		FlyingFactory flyingFactory = new FlyingFactory();
-		return flyingFactory.createFlying("Fighter Jet");
+		return FlyingFactory.createFlying("Fighter Jet");
 	}
 
 	/* (non-Javadoc)
@@ -24,8 +23,7 @@ public class HarrierFactory implements AirPlaneFactory {
 	 */
 	@Override
 	public LiftOff createLiftOff() {
-		LiftOffFactory liftOffFactory = new LiftOffFactory();
-		return liftOffFactory.createLiftOff("Vertically");
+		return LiftOffFactory.createLiftOff("Vertically");
 	}
 
 }

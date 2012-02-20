@@ -7,7 +7,7 @@ package vehicles;
  * @author jwan01
  *
  */
-public class HarrierBuilder implements AirplaneBuilderInterface {
+public class PassengerAirplaneBuilder implements AirplaneBuilderInterface {
 
 	private Airplane airplane;
 	private Flying flying;
@@ -18,7 +18,7 @@ public class HarrierBuilder implements AirplaneBuilderInterface {
 	 */
 	@Override
 	public Airplane getAirplane() {
-		
+		// TODO Auto-generated method stub
 		return airplane;
 	}
 
@@ -27,7 +27,8 @@ public class HarrierBuilder implements AirplaneBuilderInterface {
 	 */
 	@Override
 	public void buildFlying() {
-		flying = FlyingFactory.createFlying("Fighter Jet");
+		flying = FlyingFactory.createFlying("Passenger Airplane");
+
 	}
 
 	/* (non-Javadoc)
@@ -35,8 +36,8 @@ public class HarrierBuilder implements AirplaneBuilderInterface {
 	 */
 	@Override
 	public void buildLiftOff() {
-		liftOff = LiftOffFactory.createLiftOff("Vertically");
-		
+		liftOff =  LiftOffFactory.createLiftOff("Horizontally");
+
 	}
 
 	/* (non-Javadoc)
@@ -45,7 +46,7 @@ public class HarrierBuilder implements AirplaneBuilderInterface {
 	@Override
 	public void buildAirplane() {
 		airplane = new Airplane(liftOff,flying);
-		
+
 	}
 
 }

@@ -7,7 +7,7 @@ package vehicles;
  * @author jwan01
  *
  */
-public class ModelAirplaneBuilder {
+public class ModelAirplaneBuilder implements AirplaneBuilderInterface {
 	
 	private Airplane airplane;
 	private Flying flying;
@@ -19,13 +19,11 @@ public class ModelAirplaneBuilder {
 	}
 
 	public void buildFlying() {
-		FlyingFactory flyingFactory = new FlyingFactory();
-		flying = flyingFactory.createFlying("Model Airplane");
+		flying = FlyingFactory.createFlying("Model Airplane");
 	}
 
 	public void buildLiftOff() {
-		LiftOffFactory liftOffFactory = new LiftOffFactory();
-		liftOff = liftOffFactory.createLiftOff("don't");
+		liftOff = LiftOffFactory.createLiftOff("don't");
 		
 	}
 
